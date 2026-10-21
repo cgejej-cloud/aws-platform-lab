@@ -29,7 +29,7 @@ resource "aws_subnet" "public" {
   availability_zone       = data.aws_availability_zones.available.names[0]
   map_public_ip_on_launch = false # 공인 IP는 인스턴스에서 명시적으로만 부여
 
-  tags = { Name = "${var.project}-public-a", Tier = "public" }
+  tags = { Name = "${var.project}-public-a", Tier = "public" 
 }
 
 resource "aws_subnet" "private" {
@@ -37,7 +37,7 @@ resource "aws_subnet" "private" {
   cidr_block        = var.private_subnet_cidr
   availability_zone = data.aws_availability_zones.available.names[0]
 
-  tags = { Name = "${var.project}-private-a" , Tier = "private"}
+  tags = { Name = "${var.project}-private-a" , Tier = "private"
 }
 
 # Public Route Table: 기본 경로를 IGW로
