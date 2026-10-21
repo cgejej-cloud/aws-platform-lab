@@ -102,7 +102,7 @@ jobs:
   apply:
     name: terraform apply
     needs: plan
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment: production # 승인자가 승인해야 실행
     steps:
